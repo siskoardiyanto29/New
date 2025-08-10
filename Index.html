@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ErpurTravel Armada - Wisata Lokal Pangandaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #008CBA;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #005f75;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #f1f1f1;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ErpurTravel Armada</h1>
+        <p>Khusus Wisata Lokal Pangandaran</p>
+    </header>
+
+    <main>
+        <h2>Form Pemesanan</h2>
+        <form id="orderForm">
+            <label>Nama:</label>
+            <input type="text" id="nama" required>
+
+            <label>No. HP:</label>
+            <input type="tel" id="hp" required>
+
+            <label>Email:</label>
+            <input type="email" id="email">
+
+            <label>Pilih Mobil:</label>
+            <select id="mobil" required>
+                <option value="">-- Pilih Mobil --</option>
+                <option value="Avanza">Avanza</option>
+                <option value="Innova">Innova</option>
+                <option value="Hiace">Hiace</option>
+                <option value="Elf">Elf</option>
+                <option value="Bus Pariwisata">Bus Pariwisata</option>
+            </select>
+
+            <label>Rincian Tambahan:</label>
+            <textarea id="rincian" rows="4"></textarea>
+
+            <button type="button" onclick="kirimWA()">Kirim Pemesanan</button>
+        </form>
+    </main>
+
+    <footer>
+        Kontak: <a href="https://wa.me/6283134494417" target="_blank">+62 831-3449-4417</a> | Email: aseprohmatsaepulmillah@gmail.com
+    </footer>
+
+    <script>
+        function kirimWA() {
+            let nama = document.getElementById("nama").value;
+            let hp = document.getElementById("hp").value;
+            let email = document.getElementById("email").value;
+            let mobil = document.getElementById("mobil").value;
+            let rincian = document.getElementById("rincian").value;
+
+            if (!nama || !hp || !mobil) {
+                alert("Harap isi semua data yang wajib.");
+                return;
+            }
+
+            let pesan = `Halo ErpurTravel Armada,%0ASaya ingin memesan:%0A%0ANama: ${nama}%0ANo. HP: ${hp}%0AEmail: ${email}%0AMobil: ${mobil}%0ARincian: ${rincian}`;
+            window.open(`https://wa.me/6283134494417?text=${pesan}`, "_blank");
+        }
+    </script>
+</body>
+</html>
